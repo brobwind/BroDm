@@ -142,4 +142,41 @@ public class NetworkService extends Service {
 			}
 		});
 	}
+
+	public void showTraits(final String path, final String token,
+			final NetworkUtils.OnMessage callback) {
+		H.post(new Runnable() {
+			@Override
+			public void run() {
+				String url = "https://" + mIpAddr + ":" + mSecurePort + path;
+				String cmd = "{}";
+
+				NetworkUtils.runCommand(sClient, token, url, cmd, callback);
+			}
+		});
+	}
+
+	public void showComponents(final String path, final String token,
+			final NetworkUtils.OnMessage callback) {
+		H.post(new Runnable() {
+			@Override
+			public void run() {
+				String url = "https://" + mIpAddr + ":" + mSecurePort + path;
+				String cmd = "{}";
+
+				NetworkUtils.runCommand(sClient, token, url, cmd, callback);
+			}
+		});
+	}
+
+	public void showCommand(final String path, final String token, final String cmd,
+			final NetworkUtils.OnMessage callback) {
+		H.post(new Runnable() {
+			@Override
+			public void run() {
+				String url = "https://" + mIpAddr + ":" + mSecurePort + path;
+				NetworkUtils.runCommand(sClient, token, url, cmd, callback);
+			}
+		});
+	}
 }

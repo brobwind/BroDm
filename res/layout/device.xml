@@ -344,6 +344,273 @@
 					android:paddingStart="4dp"
 					android:paddingEnd="4dp"/>
 			</android.support.v7.widget.CardView>
+			<!-- /privet/v3/traits-->
+			<android.support.v7.widget.CardView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:elevation="16dp"
+				card_view:cardBackgroundColor="#71c3de"
+				card_view:cardCornerRadius="4dp"
+				android:layout_marginLeft="8dp"
+				android:layout_marginRight="8dp"
+				android:layout_marginBottom="8dp">
+				<LinearLayout android:orientation="horizontal"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:paddingStart="4dp"
+					android:paddingEnd="4dp">
+					<TextView android:text="Traits: "
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:textAppearance="@style/TA.Bold"
+						android:textAllCaps="true"/>
+					<TextView android:text="/privet/v3/traits"
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:textAppearance="@style/TA.Bold"/>
+					<Button android:id="@+id/try_traits"
+						android:text="&gt;"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:minWidth="64dp"/>
+				</LinearLayout>
+			</android.support.v7.widget.CardView>
+			<android.support.v7.widget.CardView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:elevation="16dp"
+				card_view:cardCornerRadius="4dp"
+				android:layout_marginLeft="8dp"
+				android:layout_marginRight="8dp"
+				android:layout_marginBottom="8dp">
+				<TextView android:id="@+id/traits"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:textAppearance="@style/TA"
+					android:paddingStart="4dp"
+					android:paddingEnd="4dp"/>
+			</android.support.v7.widget.CardView>
+
+			<!-- /privet/v3/components -->
+			<android.support.v7.widget.CardView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:elevation="16dp"
+				card_view:cardBackgroundColor="#71c3de"
+				card_view:cardCornerRadius="4dp"
+				android:layout_marginLeft="8dp"
+				android:layout_marginRight="8dp"
+				android:layout_marginBottom="8dp">
+				<LinearLayout android:orientation="horizontal"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:paddingStart="4dp"
+					android:paddingEnd="4dp">
+					<TextView android:text="Components: "
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:textAppearance="@style/TA.Bold"
+						android:textAllCaps="true"/>
+					<TextView android:text="/privet/v3/components"
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:textAppearance="@style/TA.Bold"/>
+					<Button android:id="@+id/try_components"
+						android:text="&gt;"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:minWidth="64dp"/>
+				</LinearLayout>
+			</android.support.v7.widget.CardView>
+			<android.support.v7.widget.CardView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:elevation="16dp"
+				card_view:cardCornerRadius="4dp"
+				android:layout_marginLeft="8dp"
+				android:layout_marginRight="8dp"
+				android:layout_marginBottom="8dp">
+				<TextView android:id="@+id/components"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:textAppearance="@style/TA"
+					android:paddingStart="4dp"
+					android:paddingEnd="4dp"/>
+			</android.support.v7.widget.CardView>
+			<!-- /privet/v3/state -->
+			<!-- /privet/v3/commandDefs -->
+			<!-- /privet/v3/commands/status-->
+			<!-- /privet/v3/commands/list-->
+			<android.support.v7.widget.CardView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:elevation="16dp"
+				card_view:cardBackgroundColor="#71c3de"
+				card_view:cardCornerRadius="4dp"
+				android:layout_marginLeft="8dp"
+				android:layout_marginRight="8dp"
+				android:layout_marginBottom="8dp">
+				<LinearLayout android:orientation="vertical"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:paddingStart="4dp"
+					android:paddingEnd="4dp">
+					<!-- /privet/v3/state -->
+					<LinearLayout android:orientation="horizontal"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent">
+						<TextView android:text="State: "
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:textAppearance="@style/TA.Bold"
+							android:textAllCaps="true"/>
+						<TextView android:text="/privet/v3/state"
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1"
+							android:textAppearance="@style/TA.Bold"/>
+						<Button android:id="@+id/try_state"
+							android:text="&gt;"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:minWidth="64dp"/>
+					</LinearLayout>
+					<!-- /privet/v3/commandDefs-->
+					<LinearLayout android:orientation="horizontal"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent">
+						<TextView android:text="commandDefs: "
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:textAppearance="@style/TA.Bold"
+							android:textAllCaps="true"/>
+						<TextView android:text="/privet/v3/commandDefs"
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1"
+							android:textAppearance="@style/TA.Bold"/>
+						<Button android:id="@+id/try_cmd_defs"
+							android:text="&gt;"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:minWidth="64dp"/>
+					</LinearLayout>
+					<!-- /privet/v3/commands/status -->
+					<LinearLayout android:orientation="horizontal"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent">
+						<TextView android:text="Commands: "
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:textAppearance="@style/TA.Bold"
+							android:textAllCaps="true"/>
+						<TextView android:text="/privet/v3/commands/status"
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1"
+							android:textAppearance="@style/TA.Bold"/>
+						<Button android:id="@+id/try_cmd_status"
+							android:text="&gt;"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:minWidth="64dp"/>
+					</LinearLayout>
+					<!-- /privet/v3/commands/list -->
+					<LinearLayout android:orientation="horizontal"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent">
+						<TextView android:text="Commands: "
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:textAppearance="@style/TA.Bold"
+							android:textAllCaps="true"/>
+						<TextView android:text="/privet/v3/commands/list"
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1"
+							android:textAppearance="@style/TA.Bold"/>
+						<Button android:id="@+id/try_cmd_list"
+							android:text="&gt;"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:minWidth="64dp"/>
+					</LinearLayout>
+				</LinearLayout>
+			</android.support.v7.widget.CardView>
+			<android.support.v7.widget.CardView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:elevation="16dp"
+				card_view:cardCornerRadius="4dp"
+				android:layout_marginLeft="8dp"
+				android:layout_marginRight="8dp"
+				android:layout_marginBottom="8dp">
+				<TextView android:id="@+id/cmd_info"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:textAppearance="@style/TA"
+					android:paddingStart="4dp"
+					android:paddingEnd="4dp"/>
+			</android.support.v7.widget.CardView>
+			<!-- /privet/v3/commands/execute -->
+			<android.support.v7.widget.CardView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:elevation="16dp"
+				card_view:cardBackgroundColor="#71c3de"
+				card_view:cardCornerRadius="4dp"
+				android:layout_marginLeft="8dp"
+				android:layout_marginRight="8dp"
+				android:layout_marginBottom="8dp">
+				<LinearLayout android:orientation="vertical"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:paddingStart="4dp"
+					android:paddingEnd="4dp">
+					<LinearLayout android:orientation="horizontal"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent">
+						<TextView android:text="Commands: "
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:textAppearance="@style/TA.Bold"
+							android:textAllCaps="true"/>
+						<TextView android:text="/privet/v3/commands/execute"
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1"
+							android:textAppearance="@style/TA.Bold"/>
+						<Button android:id="@+id/try_cmd_exec"
+							android:text="&gt;"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:minWidth="64dp"/>
+					</LinearLayout>
+				<EditText android:id="@+id/cmd"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:textAppearance="@style/TA"
+					android:minHeight="100dp"/>
+				</LinearLayout>
+			</android.support.v7.widget.CardView>
+			<android.support.v7.widget.CardView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:elevation="16dp"
+				card_view:cardCornerRadius="4dp"
+				android:layout_marginLeft="8dp"
+				android:layout_marginRight="8dp"
+				android:layout_marginBottom="8dp">
+				<TextView android:id="@+id/cmd_exec"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:textAppearance="@style/TA"
+					android:paddingStart="4dp"
+					android:paddingEnd="4dp"/>
+			</android.support.v7.widget.CardView>
+			<!-- END-->
 		</LinearLayout>
 	</ScrollView>
 	<View android:layout_width="match_parent"

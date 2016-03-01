@@ -27,6 +27,7 @@ import android.os.IBinder;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,6 +45,7 @@ public class DeviceActivity extends Activity {
 	public static String STR_PORT = "port";
 	private String mIpAddr;
 	private int mPort;
+	private String mAccessToken;
 
 	private Button mTryInfo;
 	private TextView mInfo;
@@ -57,6 +59,21 @@ public class DeviceActivity extends Activity {
 	private TextView mPairingCancel;
 	private Button mTryAuth;
 	private TextView mAuth;
+
+	private Button mTryTraits;
+	private TextView mTraits;
+	private Button mTryComponents;
+	private TextView mComponents;
+
+	private Button mTryState;
+	private Button mTryCmdDefs;
+	private Button mTryCmdStatus;
+	private Button mTryCmdList;
+	private TextView mCmdInfo;
+
+	private Button mTryCmdExec;
+	private EditText mCmd;
+	private TextView mCmdExec;
 
 	private Kit mKit;
 
@@ -267,19 +284,199 @@ public class DeviceActivity extends Activity {
 								mAuth.setText(msg);
 							}
 						});
+
+						try {
+							JSONObject target = new JSONObject(msg);
+							mAccessToken = target.getString("accessToken");
+						} catch (JSONException e) {
+							e.printStackTrace();
+						}
 					}
 				});
 			}
 		});
 		mAuth = (TextView)findViewById(R.id.auth);
 
+		// /privet/v3/traits
+		mTryTraits = (Button)findViewById(R.id.try_traits);
+		mTryTraits.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				mNetService.showTraits("/privet/v3/traits", mAccessToken, new NetworkUtils.OnMessage() {
+					@Override
+					public void onMessage(final String msg, String error) {
+						if (notifyError(mTraits, msg, error)) return;
+
+						runOnUiThread(new Runnable() {
+							@Override
+							public void run() {
+								mTraits.setText(msg);
+							}
+						});
+					}
+				});
+			}
+		});
+		mTraits= (TextView)findViewById(R.id.traits);
+
+		// /privet/v3/components
+		mTryComponents = (Button)findViewById(R.id.try_components);
+		mTryComponents.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				mNetService.showComponents("/privet/v3/components", mAccessToken, new NetworkUtils.OnMessage() {
+					@Override
+					public void onMessage(final String msg, String error) {
+						if (notifyError(mComponents, msg, error)) return;
+
+						runOnUiThread(new Runnable() {
+							@Override
+							public void run() {
+								mComponents.setText(msg);
+							}
+						});
+					}
+				});
+			}
+		});
+		mComponents  = (TextView)findViewById(R.id.components);
+
+		// /privet/v3/state
+		mTryState = (Button)findViewById(R.id.try_state);
+		mTryState.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				String cmd = "{}";
+				mNetService.showCommand("/privet/v3/state", mAccessToken, cmd, new NetworkUtils.OnMessage() {
+					@Override
+					public void onMessage(final String msg, String error) {
+						if (notifyError(mCmdInfo, msg, error)) return;
+
+						runOnUiThread(new Runnable() {
+							@Override
+							public void run() {
+								mCmdInfo.setText(msg);
+							}
+						});
+					}
+				});
+			}
+		});
+		// /privet/v3/commandDefs
+		mTryCmdDefs = (Button)findViewById(R.id.try_cmd_defs);
+		mTryCmdDefs.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				String cmd = "{}";
+				mNetService.showCommand("/privet/v3/commandDefs", mAccessToken, cmd, new NetworkUtils.OnMessage() {
+					@Override
+					public void onMessage(final String msg, String error) {
+						if (notifyError(mCmdInfo, msg, error)) return;
+
+						runOnUiThread(new Runnable() {
+							@Override
+							public void run() {
+								mCmdInfo.setText(msg);
+							}
+						});
+					}
+				});
+			}
+		});
+		// /privet/v3/command/status
+		mTryCmdStatus = (Button)findViewById(R.id.try_cmd_status);
+		mTryCmdStatus.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				String cmd = "{}";
+				mNetService.showCommand("/privet/v3/commands/status", mAccessToken, cmd, new NetworkUtils.OnMessage() {
+					@Override
+					public void onMessage(final String msg, String error) {
+						if (notifyError(mCmdInfo, msg, error)) return;
+
+						runOnUiThread(new Runnable() {
+							@Override
+							public void run() {
+								mCmdInfo.setText(msg);
+							}
+						});
+					}
+				});
+			}
+		});
+		// /privet/v3/command/list
+		mTryCmdList = (Button)findViewById(R.id.try_cmd_list);
+		mTryCmdList.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				String cmd = "{}";
+				mNetService.showCommand("/privet/v3/commands/list", mAccessToken, cmd, new NetworkUtils.OnMessage() {
+					@Override
+					public void onMessage(final String msg, String error) {
+						if (notifyError(mCmdInfo, msg, error)) return;
+
+						runOnUiThread(new Runnable() {
+							@Override
+							public void run() {
+								mCmdInfo.setText(msg);
+							}
+						});
+					}
+				});
+			}
+		});
+		mCmdInfo = (TextView)findViewById(R.id.cmd_info);
+
+		// /privet/v3/command/exectue
+		mTryCmdExec = (Button)findViewById(R.id.try_cmd_exec);
+		mTryCmdExec.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				String cmd = ((CharSequence)mCmd.getText()).toString();
+				mNetService.showCommand("/privet/v3/commands/execute", mAccessToken, cmd, new NetworkUtils.OnMessage() {
+					@Override
+					public void onMessage(final String msg, String error) {
+						if (notifyError(mCmdExec, msg, error)) return;
+
+						runOnUiThread(new Runnable() {
+							@Override
+							public void run() {
+								mCmdExec.setText(msg);
+							}
+						});
+					}
+				});
+			}
+		});
+		mCmd = (EditText)findViewById(R.id.cmd);
+		mCmd.setText(/*
+"{\n" +
+"	\"component\": \"_ledflasher\",\n" +
+"	\"name\": \"_ledflasher.set\",\n" +
+"	\"parameters\": {\n" +
+"		\"led\": 2,\n" +
+"		\"on\": true\n" +
+"	}\n" +
+"}" */
+"{\n" +
+"	\"name\": \"_ledflasher.animate\",\n" +
+"	\"parameters\": {\n" +
+"		\"duration\": 0.2,\n" +
+"		\"type\": \"marquee_left\"\n" +
+"	}\n" +
+"}"
+);
+		mCmdExec = (TextView)findViewById(R.id.cmd_exec);
+
 		mFuncAll = new Button[] {
 			mTryInfo, mTryCert, mTryPairingStart, mTryPairingConfirm,
-			mTryPairingCancel, mTryAuth
+			mTryPairingCancel, mTryAuth, mTryTraits, mTryComponents,
+			mTryState, mTryCmdDefs, mTryCmdStatus, mTryCmdList, mTryCmdExec,
 		};
 		mFuncInfo = new Button[] {
 			mTryCert, mTryPairingStart, mTryPairingConfirm,
-			mTryPairingCancel, mTryAuth
+			mTryPairingCancel, mTryAuth, mTryTraits, mTryComponents,
+			mTryState, mTryCmdDefs, mTryCmdStatus, mTryCmdList, mTryCmdExec,
 		};
 		mFuncPairing = new Button[] {
 			mTryPairingConfirm,
